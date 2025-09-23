@@ -46,13 +46,13 @@
 }:
 
 let
-  version = "3.4.7";
+  version = "3.5.0";
 
   src = fetchFromGitHub {
     owner = "discourse";
     repo = "discourse";
     rev = "v${version}";
-    sha256 = "sha256-vidv5aa2r1YOcnvkqrk7ttuIk1bN5Ct7kMANl8kpEm0=";
+    sha256 = "sha256-kltUoNdClo+6SOHIdJJSJfCANTKsz3nXgM3OAZPsEgM=";
   };
 
   ruby = ruby_3_3;
@@ -233,7 +233,7 @@ let
       pname = "discourse-assets";
       inherit version src;
       fetcherVersion = 1;
-      hash = "sha256-WyRBnuKCl5NJLtqy3HK/sJcrpMkh0PjbasGPNDV6+7Y=";
+      hash = "sha256-+dZaiEUEoQHM+D3wwPzPP8uoK9kWLRA0rMUxrLCd1rk=";
     };
 
     nativeBuildInputs = runtimeDeps ++ [
