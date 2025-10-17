@@ -4630,6 +4630,7 @@ with pkgs;
   gcc13Stdenv = overrideCC gccStdenv buildPackages.gcc13;
   gcc14Stdenv = overrideCC gccStdenv buildPackages.gcc14;
   gcc15Stdenv = overrideCC gccStdenv buildPackages.gcc15;
+  gcc16Stdenv = overrideCC gccStdenv buildPackages.gcc16;
 
   # This is not intended for use in nixpkgs but for providing a faster-running
   # compiler to nixpkgs users by building gcc with reproducibility-breaking
@@ -4732,6 +4733,7 @@ with pkgs;
     gcc13
     gcc14
     gcc15
+    gcc16
     ;
 
   gcc_latest = gcc15;
