@@ -504,6 +504,8 @@ outer
     "gfx908"
     "gfx90a"
     "gfx942"
+    "gfx9-4-generic"
+    "gfx950"
   ];
   gfx10 = scopeForArches [
     "gfx1010"

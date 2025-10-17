@@ -290,6 +290,12 @@ let
       # Workaround build failures like:
       #   cc1: error: fp software completion requires '-mtrap-precision=i' [-Werror]
       "--disable-werror"
+    ]
+    ++ lib.optionals (targetPlatform.isx86_64 && targetPlatform.libc == "glibc" && lib.versions.major version >= 16) [
+      "--enable-x86-64-mfentry"
+    ]
+    ++ lib.optionals (langFortran && lib.versions.major version >= 16) [
+      "--enable-external-blas64"
     ];
 
 in
