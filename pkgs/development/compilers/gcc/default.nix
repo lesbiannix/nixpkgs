@@ -78,9 +78,8 @@ let
   version = gccVersions.fromMajorMinor majorMinorVersion;
 
   majorVersion = versions.major version;
-  atLeast14 = versionAtLeast version "14";
+  is16 = majorVersion == "16";
   is14 = majorVersion == "14";
-  is13 = majorVersion == "13";
 
   # releases have a form: MAJOR.MINOR.MICRO, like 14.2.1
   # snapshots have a form like MAJOR.MINOR.MICRO.DATE, like 14.2.1.20250322
@@ -213,10 +212,10 @@ pipe
       src = fetchurl {
         url =
           if isSnapshot then
-            "mirror://gcc/snapshots/${majorVersion}-${snapDate}/gcc-${majorVersion}-${snapDate}.tar.xz"
+            "mirror://gcc/snapshots/${if is16 then "LATEST-" else ""}${majorVersion}/gcc-${majorVersion}-${snapDate}.tar.xz"
           else
             "mirror://gcc/releases/gcc-${version}/gcc-${version}.tar.xz";
-        ${if is13 then "hash" else "sha256"} = gccVersions.srcHashForVersion version;
+        sha256 = gccVersions.srcHashForVersion version;
       };
 
       inherit patches;
